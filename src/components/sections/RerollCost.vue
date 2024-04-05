@@ -26,7 +26,7 @@
           </thead>
 
           <tbody>
-            <tr v-for="row in getRows()" :key="row.title">
+            <tr v-for="row in getRerollRows()" :key="row.title">
               <th scope="row">{{ row.title }}</th>
               <td scope="row" v-for="chaosTier in getChaosTiers()" :key="`per-${chaosTier.title}`">{{ calculateCost(chaosTier.moteAmount, chaosTier.goldAmount, row.rerollAmount) }}</td>
             </tr>
@@ -109,7 +109,7 @@ function getChaosTiers(): ChaosTier[] {
   ]
 }
 
-function getRows(): RerollRow[] {
+function getRerollRows(): RerollRow[] {
   return [
     { title: "Cost per roll", rerollAmount: 1 },
     { title: "Cost per 286", rerollAmount: pitySystemLimit.value },
